@@ -1,20 +1,14 @@
 from bd import Produtos
 buscar()
 
-def buscar():
-    for i in range(len(Produtos)):
+def atualizar():
+ for i in range(len(Produtos)):
         for k,v in Produtos[i].items():
             if(v==2):
-                print(Produtos[i].items())
-            else:
-                print("não deu") 
+                Produtos[i]["id"]=9
+                Produtos[i]["nome"]="notebook"
+                Produtos[i]["nome"]=4500 
            
        
-def buscar():
-    valor = id_produto.value()
-    for i in range(len(Produtos)):
-        for k,v in Produtos[i].items():
-            if(v==2):
-                print("deun certo")
-            else:
-                print("não deu") 
+
+          
