@@ -16,6 +16,19 @@ def cadastrar_produto():
         jsonify(mensagen = "Produto cadastrado com sucesso"
         )
     )
-    
+
+@app.route('/deletar',methods=['DELETE'])
+def deletar():
+    apagar()    
+    return make_response(
+        jsonify(mensagen = "Produto atualizado")
+    )
+
+def apagar():
+    for i in range(len(Produtos)):
+        for k,v in Produtos[i].items():
+            if(v==2):
+                Produtos.pop(i)
+                
 
 app.run()    
