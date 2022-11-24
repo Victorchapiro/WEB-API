@@ -21,6 +21,14 @@ def cadastrar_produto():
 def deletar():
     apagar()    
     return make_response(
+        jsonify(mensagen = "Produto deletado")
+    )
+
+
+@app.route('/atualizar',methods=['PUT'])
+def atualizar():
+    atualizarproduto()    
+    return make_response(
         jsonify(mensagen = "Produto atualizado")
     )
 
@@ -29,6 +37,18 @@ def apagar():
         for k,v in Produtos[i].items():
             if(v==2):
                 Produtos.pop(i)
+
+def atualizarproduto():
+    novoproduto =  {
+        'id':14,
+        'nome': 'Notebook',
+        'preço': 45000
+    }
+
+    for i in range(len(Produtos)):
+        for k,v in Produtos[i].items():
+            if(v==2):
+                Produtos[i] = novoproduto
                 
 
 app.run()    
