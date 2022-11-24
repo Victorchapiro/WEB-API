@@ -40,14 +40,14 @@ def apagar():
 
 def atualizarproduto():
     novoproduto =  {
-        'id':14,
+        'id':3,
         'nome': 'Notebook',
         'preço': 45000
     }
 
     for i in range(len(Produtos)):
         for k,v in Produtos[i].items():
-            if(v==2):
+            if(v==1):
                 Produtos[i] = novoproduto
                 
 
