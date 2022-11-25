@@ -13,7 +13,8 @@ def cadastrar_produto():
     newproduto = request.json
     Produtos.append(newproduto)
     return make_response(
-        jsonify(mensagen = "Produto cadastrado com sucesso"
+        jsonify( produto = newproduto,
+            mensagen = "Produto cadastrado com sucesso"
         )
     )
 
@@ -34,7 +35,7 @@ def atualizar():
 
 def apagar():
     for i in range(len(Produtos)):
-        for k,v in Produtos[i].items():
+        for v in Produtos[i].values():
             if(v==2):
                 Produtos.pop(i)
 
@@ -46,7 +47,7 @@ def atualizarproduto():
     }
 
     for i in range(len(Produtos)):
-        for k,v in Produtos[i].items():
+        for v in Produtos[i].values():
             if(v==1):
                 Produtos[i] = novoproduto
                 
