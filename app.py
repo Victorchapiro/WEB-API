@@ -8,7 +8,7 @@ def retornar_produtos():
         jsonify(Produtos)
         )
 
-@app.route('/cadastro',methods=['POST'])
+@app.route('/produtos',methods=['POST'])
 def cadastrar_produto():
     newproduto = request.json
     Produtos.append(newproduto)
@@ -18,7 +18,7 @@ def cadastrar_produto():
         )
     )
 
-@app.route('/deletar',methods=['DELETE'])
+@app.route('/produtos',methods=['DELETE'])
 def deletar():
     apagar()    
     return make_response(
@@ -26,25 +26,21 @@ def deletar():
     )
 
 
-@app.route('/atualizar',methods=['PUT'])
+@app.route('/produtos',methods=['PUT'])
 def atualizar():
     atualizarproduto()    
     return make_response(
         jsonify(mensagen = "Produto atualizado")
     )
 
-def apagar():
-    for i in range(len(Produtos)):
+def apagar():     
+     for i in range(len(Produtos)):
         for v in Produtos[i].values():
             if(v==2):
                 Produtos.pop(i)
 
 def atualizarproduto():
-    novoproduto =  {
-        'id':3,
-        'nome': 'Notebook',
-        'preço': 45000
-    }
+    novoproduto = request.json
 
     for i in range(len(Produtos)):
         for v in Produtos[i].values():
